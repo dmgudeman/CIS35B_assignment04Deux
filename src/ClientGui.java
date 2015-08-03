@@ -207,21 +207,15 @@ public class ClientGui
         {
             public void actionPerformed(ActionEvent ae)
             {
-                out.println(TA_inputContent.getText());
-                String response;
+                String sfile = TF_inputFilename.getText();
                 try
                 {
-                    response = in.readLine();
-                    if (response == null || response.equals(""))
-                    {
-                        System.exit(0);
-                    }
-                } catch (IOException ex)
+                    ConverterClient.work(ConverterClient.getSocket(), sfile);
+                } catch (Exception e)
                 {
-                    response = "Error: " + ex;
+                    JOptionPane.showMessageDialog(null, e);
                 }
-                TF_inputFilename.setText(response + "\n");
-                TA_inputContent.selectAll();
+
             }
         });
 
@@ -252,7 +246,7 @@ public class ClientGui
 
     public void JB_inputActionPerformed() throws IOException
     {
-        JFileChooser chooser = new JFileChooser("/Users/davidgudeman/Documents/workspace/CIS35B_assignment04");
+        JFileChooser chooser = new JFileChooser("/Users/davidgudeman/Documents/workspace/CIS35B_assignment04Deux/src");
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
         String filename = f.getAbsolutePath();

@@ -1,19 +1,13 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 
 /**
  * A simple Swing-based client for the capitalization server.
@@ -23,50 +17,16 @@ import java.net.UnknownHostException;
  */
 public class ConverterClient {
 
-    private BufferedReader in;
-    private PrintWriter out;
-    private JFrame frame = new JFrame("Capitalize Client");
-    private JTextField dataField = new JTextField(40);
-    private JTextArea messageArea = new JTextArea(8, 60);
+    private static BufferedReader in;
+    private static PrintWriter out;
 
-    /**
-     * Constructs the client by laying out the GUI and registering a
-     * listener with the textfield so that pressing Enter in the
-     * listener sends the textfield contents to the server.
-     */
-    public ConverterClient() {
+    public static final int PORT = 9898;
+    public static final int BUFFER_SIZE = 100;
+    public static String FILE_TO_SEND;
+    public static Socket socket;
 
-        // Layout GUI
-        messageArea.setEditable(false);
-        frame.getContentPane().add(dataField, "North");
-        frame.getContentPane().add(new JScrollPane(messageArea), "Center");
 
-        // Add Listeners
-        dataField.addActionListener(new ActionListener() {
-            /**
-             * Responds to pressing the enter key in the textfield
-             * by sending the contents of the text field to the
-             * server and displaying the response from the server
-             * in the text area.  If the response is "." we exit
-             * the whole application, which closes all sockets,
-             * streams and windows.
-             */
-            public void actionPerformed(ActionEvent e) {
-                out.println(dataField.getText());
-                String response;
-                try {
-                    response = in.readLine();
-                    if (response == null || response.equals("")) {
-                        System.exit(0);
-                    }
-                } catch (IOException ex) {
-                    response = "Error: " + ex;
-                }
-                messageArea.append(response + "\n");
-                dataField.selectAll();
-            }
-        });
-    }
+
 
     /**
      * Implements the connection logic by prompting the end user for
@@ -76,29 +36,24 @@ public class ConverterClient {
      * client immediately after establishing a connection.
      */
     public void connectToServer() throws IOException {
-
+        Thread thread = Thread.currentThread();
+        ClientGui clientGui = new ClientGui();
         // Get the server address from a dialog box.
-        String serverAddress = JOptionPane.showInputDialog(
-                frame,
-                "Enter IP Address of the ConverterServer:",
-                "Welcome to the Capitalization Program",
-                JOptionPane.QUESTION_MESSAGE);
+       // String serverAddress = clientGui.TF_inputFilename.getText();
 
         // Make connection and initialize streams
-        Socket socket = new Socket(serverAddress, 9898);
+        socket = new Socket("localhost", PORT);
         in = new BufferedReader(
                 new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
-
-        // Consume the initial welcoming messages from the server
-        for (int i = 0; i < 3; i++) {
-            messageArea.append(in.readLine() + "\n");
+        System.out.println("CTSClient SwingUtilities.isEventDispatchThread(): " + SwingUtilities.isEventDispatchThread());
+        System.out.println("RunnableJob is being run by " + thread.getName() + " (" + thread.getId() + ")");
         }
+    public static Socket getSocket()
+    {
+        return socket;
     }
     static public void CrunchifyGetIPHostname() {
-
-
-
             InetAddress ip;
             String hostname;
             try {
@@ -106,22 +61,30 @@ public class ConverterClient {
                 hostname = ip.getHostName();
                 System.out.println("Your current IP address : " + ip);
                 System.out.println("Your current Hostname : " + hostname);
-
             } catch (UnknownHostException e) {
-
                 e.printStackTrace();
             }
         }
+    static public void work(Socket socket, String sfile) throws IOException
+    {
+        File file = new File(sfile);
+       // ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+      //  ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
 
+        out.print(file);
+
+
+        out.close();
+        in.close();
+        System.exit(0);
+    }
     /**
      * Runs the client application.
      */
     public static void main(String[] args) throws Exception {
         ConverterClient client = new ConverterClient();
-        client.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        client.frame.pack();
-        client.frame.setVisible(true);
+
         client.connectToServer();
 
     }

@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -44,17 +41,21 @@ public class ConverterServer
         serverGui.TF_port.setText(""+ PORT);
         serverGui.TF_hostname.setText(hostname);
         serverGui.TF_IPaddress.setText(ipAddress);
+        Socket socket = null;
+        InputStream in = null;
+        OutputStream out = null;
 
         int clientNumber = 0;
-        ServerSocket listener = new ServerSocket(PORT);
+
+       // Create a SeverSocket
+        ServerSocket serverSocket = new ServerSocket(PORT);
         getIPHostname();
         try {
-            while (true) {
-                new Converter(listener.accept(), clientNumber++).start();
+           socket = serverSocket.accept(), clientNumber++).start();
 
             }
         } finally {
-            listener.close();
+            serverSocket.close();
         }
     }
 
