@@ -20,7 +20,11 @@ import java.net.UnknownHostException;
  */
 public class ConverterServer
 {
-
+    public static InetAddress ip;
+    public static String ipAddress;
+    public static String hostname;
+    public static int PORT;
+    public static ServerGui serverGui = new ServerGui();
     /**
      * Application method to run the server runs in an infinite loop
      * listening on port 9898.  When a connection is requested, it
@@ -30,10 +34,19 @@ public class ConverterServer
      * messages.  It is certainly not necessary to do this.
      */
     public static void main(String[] args) throws Exception {
-        ServerGui serverGui = new ServerGui();
-        System.out.println("The capitalization server is running.");
+        PORT = 9898;
+
+        serverGui.TF_status.setText("The server is running.");
+
+        ip = InetAddress.getLocalHost();
+        ipAddress = ip.getHostAddress();
+        hostname = ip.getHostName();
+        serverGui.TF_port.setText(""+ PORT);
+        serverGui.TF_hostname.setText(hostname);
+        serverGui.TF_IPaddress.setText(ipAddress);
+
         int clientNumber = 0;
-        ServerSocket listener = new ServerSocket(9898);
+        ServerSocket listener = new ServerSocket(PORT);
         getIPHostname();
         try {
             while (true) {
@@ -86,6 +99,7 @@ public class ConverterServer
                     if (input == null || input.equals(".")) {
                         break;
                     }
+                    serverGui.TA_inputContent.append(input);
                     out.println(input.toUpperCase());
                 }
             } catch (IOException e) {

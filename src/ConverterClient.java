@@ -1,4 +1,3 @@
-package edu.lmu.cs.networking;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +21,7 @@ import java.net.UnknownHostException;
  * strings and a textarea to see the results of capitalizing
  * them.
  */
-public class CapitalizeClient {
+public class ConverterClient {
 
     private BufferedReader in;
     private PrintWriter out;
@@ -35,7 +34,7 @@ public class CapitalizeClient {
      * listener with the textfield so that pressing Enter in the
      * listener sends the textfield contents to the server.
      */
-    public CapitalizeClient() {
+    public ConverterClient() {
 
         // Layout GUI
         messageArea.setEditable(false);
@@ -119,7 +118,7 @@ public class CapitalizeClient {
      * Runs the client application.
      */
     public static void main(String[] args) throws Exception {
-        CapitalizeClient client = new CapitalizeClient();
+        ConverterClient client = new ConverterClient();
         client.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         client.frame.pack();
         client.frame.setVisible(true);
