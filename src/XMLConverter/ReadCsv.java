@@ -1,3 +1,4 @@
+package XMLConverter;
 
 import java.io.*;
 import java.net.Socket;
@@ -117,8 +118,8 @@ public class ReadCsv
                     + master[i][3] + "</description>\n\t<price>" + master[i][4] + "</price>\n</car>\n");
 
             //   PrintWriter out = new PrintWriter(ConverterClient.getSocket().getOutputStream(), true);
-            //  out.println(ClientGui.TA_inputContent.getText());
-            //    System.out.println("ClientGui.TA_inputContent " + ClientGui.TA_inputContent.getText());
+            //  out.println(XMLConverter.ClientGui.TA_inputContent.getText());
+            //    System.out.println("XMLConverter.ClientGui.TA_inputContent " + XMLConverter.ClientGui.TA_inputContent.getText());
             //   out.close();
 
 

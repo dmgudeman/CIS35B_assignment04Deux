@@ -1,23 +1,13 @@
+package XMLConverter;
+import XMLConverter.ClientGui;
 
-import sun.nio.cs.US_ASCII;
-import sun.nio.cs.ext.ISO_8859_11;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.Socket;
 
 import javax.swing.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.nio.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.charset.Charset;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
