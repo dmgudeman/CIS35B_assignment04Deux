@@ -104,7 +104,8 @@ public class ServerGui
         TA_inputContent.setLineWrap(true);
         TA_inputContent.setPreferredSize(new Dimension(600, 600));
 
-        JSP_pane = new JScrollPane(TA_inputContent, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JSP_pane = new JScrollPane(TA_inputContent, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         JSP_pane.setPreferredSize(new Dimension(600, 600));
 
         JL_convertButton = new JLabel("CONVERT:");
@@ -258,41 +259,23 @@ public class ServerGui
 
         MainWindow.setVisible(true);
 
-  /*      // ActionListener added to NEXT button
+        // ActionListener added to NEXT button
         JB_convertButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)
             {
                 EventQueue.invokeLater(new Runnable()
                 {
-                    STCServer s = new STCServer();
-
                     @Override
                     public void run()
                     {
-                        //s.runProgram();
-                        try
-                        {
-                            CTSServer ctsServer = new CTSServer();
-                        } catch (Exception e)
-                        {
-                            System.out.println("Exception caught");
-                        }
-
-                        CTSClient ctsClient = new CTSClient();
-                        Thread thread1 = new Thread(ctsClient);
-                        System.out.println("JB_convertButton pressed");
-                        thread1.setName("ctsClient");
-                        thread1.start();
                         ReadCsv r = new ReadCsv();
-                        r.readCsv();
-
-
+                        r.readCsv(ConverterClient.getSocket());
                     }
                 });
             }
         });
-        */
+
 
         // ActionListener added to PREV button
   /*      JB_chooseFile.addActionListener(new ActionListener()

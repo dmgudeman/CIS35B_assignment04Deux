@@ -1,4 +1,7 @@
 
+import sun.nio.cs.US_ASCII;
+import sun.nio.cs.ext.ISO_8859_11;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -7,7 +10,15 @@ import java.net.Socket;
 import javax.swing.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.charset.Charset;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple Swing-based client for the capitalization server.
@@ -18,7 +29,10 @@ import java.util.Arrays;
 public class ConverterClient {
 
     private static BufferedReader in;
+    private static FileInputStream fileInputStream;
+
     private static PrintWriter out;
+    private static OutputStream outputStream;
 
     public static final int PORT = 9898;
     public static final int BUFFER_SIZE = 100;
@@ -65,19 +79,50 @@ public class ConverterClient {
                 e.printStackTrace();
             }
         }
-    static public void work(Socket socket, String sfile) throws IOException
+    public static void work() throws IOException
     {
-        File file = new File(sfile);
+       // File file = new File(sfile);
        // ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
       //  ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+     /*   long length = file.length();
+        byte[] bytes = new byte[16 * 1024];
+        fileInputStream = new FileInputStream(file);
 
+        outputStream = socket.getOutputStream();
+        int count;
+        while ((count = fileInputStream.read(bytes)) > 0)
+        {
+            outputStream.write(bytes, 0, count);
+        }
 
-        out.print(file);
-
-
-        out.close();
-        in.close();
+        outputStream.close();
+        fileInputStream.close();
         System.exit(0);
+*/
+        //Path absolute = Paths.get(sfile);
+    //    Charset cset = Charset.defaultCharset().forName("ISO-8859-1");
+     //   List<String> lines = Files.readAllLines(absolute, cset);
+        outputStream = socket.getOutputStream();
+        String response;
+
+       // File inFile  = new File(sfile);
+      //  BufferedReader in = new BufferedReader(new FileReader(sfile));
+        PrintStream writer = new PrintStream(outputStream);
+        List<String> TAlist = new ArrayList<>();
+        for (String line : ClientGui.TA_inputContent.getText().split("\\n"))
+        try
+        {
+            while (writer != null)
+                writer.println(line);
+            System.out.println(line);
+        }
+        catch (Exception ex)
+        {
+            System.out.println( "Error: " + ex);
+        }
+        writer.close();
+
+
     }
     /**
      * Runs the client application.

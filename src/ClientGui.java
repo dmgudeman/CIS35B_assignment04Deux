@@ -207,15 +207,25 @@ public class ClientGui
         {
             public void actionPerformed(ActionEvent ae)
             {
-                String sfile = TF_inputFilename.getText();
-                try
+                EventQueue.invokeLater(new Runnable()
                 {
-                    ConverterClient.work(ConverterClient.getSocket(), sfile);
-                } catch (Exception e)
-                {
-                    JOptionPane.showMessageDialog(null, e);
-                }
+                    @Override
+                    public void run()
+                    {
+                        try
+                        {
+                            PrintWriter out = new PrintWriter(ConverterClient.getSocket().getOutputStream(), true);
+                            out.println(ClientGui.TA_inputContent.getText());
+                            System.out.println("ClientGui.TA_inputContent " + ClientGui.TA_inputContent.getText());
+                                  out.close();
+                        }
+                        catch (Exception e)
+                        {
+                            System.out.println(e);
+                        }
 
+                    }
+                });
             }
         });
 

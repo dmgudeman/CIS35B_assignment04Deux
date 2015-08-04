@@ -1,8 +1,13 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A server program which accepts requests from clients to
@@ -17,11 +22,13 @@ import java.net.UnknownHostException;
  */
 public class ConverterServer
 {
+
     public static InetAddress ip;
     public static String ipAddress;
     public static String hostname;
     public static int PORT;
     public static ServerGui serverGui = new ServerGui();
+    public static Socket socket;
     /**
      * Application method to run the server runs in an infinite loop
      * listening on port 9898.  When a connection is requested, it
@@ -41,21 +48,17 @@ public class ConverterServer
         serverGui.TF_port.setText(""+ PORT);
         serverGui.TF_hostname.setText(hostname);
         serverGui.TF_IPaddress.setText(ipAddress);
-        Socket socket = null;
-        InputStream in = null;
-        OutputStream out = null;
 
         int clientNumber = 0;
-
-       // Create a SeverSocket
-        ServerSocket serverSocket = new ServerSocket(PORT);
+        ServerSocket listener = new ServerSocket(PORT);
         getIPHostname();
         try {
-           socket = serverSocket.accept(), clientNumber++).start();
+            while (true) {
+                new Converter(listener.accept(), clientNumber++).start();
 
             }
         } finally {
-            serverSocket.close();
+            listener.close();
         }
     }
 
@@ -64,12 +67,12 @@ public class ConverterServer
      * socket.  The client terminates the dialogue by sending a single line
      * containing only a period.
      */
-    private static class Converter extends Thread {
-        private Socket socket;
+    private static class Converter extends Thread
+    {
         private int clientNumber;
 
         public Converter(Socket socket, int clientNumber) {
-            this.socket = socket;
+            ConverterServer.socket = socket;
             this.clientNumber = clientNumber;
             log("New connection with client# " + clientNumber + " at " + socket);
         }
@@ -81,29 +84,27 @@ public class ConverterServer
          */
         public void run() {
             try {
-
+///////////////////////SERVER//////////////////////////////////////////////////////
                 // Decorate the streams so we can send characters
                 // and not just bytes.  Ensure output is flushed
                 // after every newline.
                 BufferedReader in = new BufferedReader(
                         new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                String line;
 
-                // Send a welcome message to the client.
-                out.println("Hello, you are client #" + clientNumber + ".");
-                out.println("Enter a line with only a period to quit\n");
+                List<String> responseData = new ArrayList<String>();
+                while ((line = in.readLine()) != null) {responseData.add(line);}
+                System.out.println("responseData.size() " + responseData.size());
 
-                // Get messages from the client, line by line; return them
-                // capitalized
-                while (true) {
-                    String input = in.readLine();
-                    if (input == null || input.equals(".")) {
-                        break;
-                    }
-                    serverGui.TA_inputContent.append(input);
-                    out.println(input.toUpperCase());
+                for (String l :  responseData)
+                {
+                    serverGui.TA_inputContent.append(l + "\n");
+                    System.out.println(l);
+                    System.out.println("THIS FIRED");
                 }
-            } catch (IOException e) {
+
+            } catch (Exception e) {
                 log("Error handling client# " + clientNumber + ": " + e);
             } finally {
                 try {
@@ -113,6 +114,12 @@ public class ConverterServer
                 }
                 log("Connection with client# " + clientNumber + " closed");
             }
+
+
+        }
+        public static Socket getSocket()
+        {
+            return socket;
         }
 
         /**
@@ -123,10 +130,14 @@ public class ConverterServer
             System.out.println(message);
         }
     }
-    static public void getIPHostname() {
 
+    public static Socket getSocket()
+    {
+        return socket;
+    }
 
-
+    static public void getIPHostname()
+    {
         InetAddress ip;
         String hostname;
         try {
@@ -136,7 +147,6 @@ public class ConverterServer
             System.out.println("Your current Hostname : " + hostname);
 
         } catch (UnknownHostException e) {
-
             e.printStackTrace();
         }
     }
