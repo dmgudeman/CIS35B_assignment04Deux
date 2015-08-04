@@ -35,6 +35,7 @@ public class ServerGui
     public static JLabel JL_output = null;
     public static JTextField TF_outputFileName = null;
     public static JTextArea TA_outputContent = null;
+    public static JScrollPane JSP_pane2  = null;
 
     public static JLabel JL_convertButton = null;
     public static JButton JB_convertButton = null;
@@ -117,7 +118,11 @@ public class ServerGui
 
         JL_output = new JLabel("OUTPUT FILENAME: ");
         TF_outputFileName = new JTextField(15);
-        TA_outputContent = new JTextArea(25, 50);
+        TA_outputContent = new JTextArea(600, 600);
+
+        JSP_pane2 = new JScrollPane(TA_outputContent, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JSP_pane2.setPreferredSize(new Dimension(600, 600));
 
         /**
          * Uses Layout tool to position the elements in the panel Gudeman
@@ -253,7 +258,7 @@ public class ServerGui
         c.gridx = 0;
         c.gridy = 11;
         c.ipady = 200;
-        panel.add(TA_outputContent, c);
+        panel.add(JSP_pane2, c);
 
         MainWindow.add(panel, BorderLayout.CENTER);
 
@@ -270,7 +275,7 @@ public class ServerGui
                     public void run()
                     {
                         ReadCsv r = new ReadCsv();
-                        r.readCsv(ConverterClient.getSocket());
+                        r.convertXML(ConverterServer.getSocket());
                     }
                 });
             }

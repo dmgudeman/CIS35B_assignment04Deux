@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ConverterServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConverterServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ConverterServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43338954">
+            <state vertical-scroll-proportion="-9.518518">
               <caret line="101" column="63" selection-start-line="101" selection-start-column="63" selection-end-line="101" selection-end-column="63" />
               <folding>
                 <element signature="e#3518#3526#0" expanded="true" />
@@ -44,7 +44,7 @@
       <file leaf-file-name="ConverterClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ConverterClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.296296">
+            <state vertical-scroll-proportion="29.37037">
               <caret line="45" column="20" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,8 +58,8 @@
       <file leaf-file-name="ClientGui.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.851852">
-              <caret line="228" column="13" selection-start-line="228" selection-start-column="13" selection-end-line="228" selection-end-column="13" />
+            <state vertical-scroll-proportion="-11.185185">
+              <caret line="216" column="67" selection-start-line="215" selection-start-column="25" selection-end-line="219" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -84,21 +84,23 @@
       <file leaf-file-name="ServerGui.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ServerGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.296296">
-              <caret line="303" column="44" selection-start-line="303" selection-start-column="42" selection-end-line="303" selection-end-column="44" />
+            <state vertical-scroll-proportion="-3.9629629">
+              <caret line="256" column="24" selection-start-line="256" selection-start-column="24" selection-end-line="256" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReadCsv.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReadCsv.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ReadCsv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="78" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.38709676">
+              <caret line="100" column="45" selection-start-line="100" selection-start-column="45" selection-end-line="100" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1751#1759#0" expanded="true" />
+                <element signature="e#1763#1771#0" expanded="true" />
+                <element signature="e#5354#5355#0" expanded="true" />
+                <element signature="e#5397#5398#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,11 +128,11 @@
         <option value="$PROJECT_DIR$/src/Server.java" />
         <option value="$PROJECT_DIR$/src/ConverterClient.java" />
         <option value="$PROJECT_DIR$/src/CTStest.csv" />
-        <option value="$PROJECT_DIR$/src/ReadCsv.java" />
-        <option value="$PROJECT_DIR$/src/ServerGui.java" />
         <option value="$PROJECT_DIR$/src/TestRedirect.java" />
         <option value="$PROJECT_DIR$/src/ClientGui.java" />
         <option value="$PROJECT_DIR$/src/ConverterServer.java" />
+        <option value="$PROJECT_DIR$/src/ServerGui.java" />
+        <option value="$PROJECT_DIR$/src/ReadCsv.java" />
       </list>
     </option>
   </component>
@@ -563,12 +565,12 @@
       <workItem from="1438544742465" duration="12000" />
       <workItem from="1438544863640" duration="10000" />
       <workItem from="1438544963322" duration="10764000" />
-      <workItem from="1438631672379" duration="21166000" />
+      <workItem from="1438631672379" duration="26766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35000000" />
+    <option name="totallyTimeSpent" value="40600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1910" y="364" width="1236" height="1057" extended-state="0" />
@@ -582,7 +584,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30990416" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30990416" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21273032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -774,29 +776,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReadCsv.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="78" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1751#1759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConverterClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.296296">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2252#2253#0" expanded="true" />
-            <element signature="e#2281#2282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestRedirect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -811,25 +790,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.851852">
-          <caret line="228" column="13" selection-start-line="228" selection-start-column="13" selection-end-line="228" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.296296">
-          <caret line="303" column="44" selection-start-line="303" selection-start-column="42" selection-end-line="303" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConverterServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43338954">
+        <state vertical-scroll-proportion="-9.518518">
           <caret line="101" column="63" selection-start-line="101" selection-start-column="63" selection-end-line="101" selection-end-column="63" />
           <folding>
             <element signature="e#3518#3526#0" expanded="true" />
@@ -839,6 +802,47 @@
             <element signature="e#4697#4698#0" expanded="true" />
             <element signature="e#4747#4748#0" expanded="true" />
             <element signature="e#4776#4777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.185185">
+          <caret line="216" column="67" selection-start-line="215" selection-start-column="25" selection-end-line="219" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9629629">
+          <caret line="256" column="24" selection-start-line="256" selection-start-column="24" selection-end-line="256" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConverterClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="29.37037">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReadCsv.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38709676">
+          <caret line="100" column="45" selection-start-line="100" selection-start-column="45" selection-end-line="100" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1763#1771#0" expanded="true" />
+            <element signature="e#5354#5355#0" expanded="true" />
+            <element signature="e#5397#5398#0" expanded="true" />
           </folding>
         </state>
       </provider>
